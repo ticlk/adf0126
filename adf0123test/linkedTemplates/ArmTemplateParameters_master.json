@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf0123test"
+		},
+		"ADLS_LS_accountKey": {
+			"value": ""
+		},
+		"SQLDB_LS_password": {
+			"value": ""
+		},
+		"ADLS_LS_properties_typeProperties_url": {
+			"value": "https://storagee1203.dfs.core.chinacloudapi.cn/"
+		},
+		"SQLDB_LS_properties_typeProperties_server": {
+			"value": "sql1111.database.chinacloudapi.cn"
+		},
+		"SQLDB_LS_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"SQLDB_LS_properties_typeProperties_userName": {
+			"value": "lihong"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
