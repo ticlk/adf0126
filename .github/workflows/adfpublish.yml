@@ -22,6 +22,7 @@ jobs:
       with:
         # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
         creds: ${{secrets.AZURE_CREDENTIALS}}
+        environment: 'AzureChinaCloud'
         
     - name: Deploy Azure Resource Manager (ARM) Template
       uses: Azure/arm-deploy@v1.0.6
@@ -37,4 +38,4 @@ jobs:
         deploymentMode: Incremental
         # Supply deployment parameter values. In this simple scenario, 
         # I am only passing the name of the target ADF to which this is being deployed
-        parameters: factoryName=adf0213dev
+        parameters: ./adf0123test/ARMTemplateParametersForFactory.json
