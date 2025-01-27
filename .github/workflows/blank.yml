@@ -1,0 +1,28 @@
+# This is a basic workflow to help you deploy an ADF ARM template to a higher environment
+
+# For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
+# For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
+
+on:
+  push:
+    branches:
+      - adf_publish
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: 'This deploys to Production'
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az cloud set -n AzureChinaCloud
+          az login -u li.hong@MicrosoftInternal.partner.onmschina.cn -p P@ssw9rd!...
+          az account set --subscription 1f2ffc2d-4f6a-4fea-b142-31ae337d6aad
+          az deployment group create  --resource-group rg1108 --template-file ./adf0123test/ARMTemplateForFactory.json --parameters ./adf0123test/ARMTemplateParametersForFactory.json
