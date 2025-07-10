@@ -1,12 +1,12 @@
 {
-	"name": "SQLDBdataset01",
+	"name": "SqlServerTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SQLDB_LS",
+			"referenceName": "SqlServer1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "AzureSqlTable",
+		"type": "SqlServerTable",
 		"schema": [
 			{
 				"name": "id",
@@ -26,7 +26,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "table0414"
+			"table": "table0123"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

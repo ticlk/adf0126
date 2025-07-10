@@ -1,5 +1,5 @@
 {
-	"name": "copy_pipeline_0126",
+	"name": "pipeline3",
 	"properties": {
 		"activities": [
 			{
@@ -16,14 +16,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "AzureMySqlSource",
+						"queryTimeout": "02:00:00"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -43,20 +42,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQLDBdataset01",
+						"referenceName": "AzureMySqlTable1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "adlsdataset01",
+						"referenceName": "DelimitedText2",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2025-01-27T05:09:40Z"
+		"lastPublishTime": "2025-05-21T01:42:05Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

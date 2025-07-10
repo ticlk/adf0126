@@ -1,0 +1,24 @@
+{
+	"name": "AzurePostgreSql1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzurePostgreSql",
+		"version": "2.0",
+		"typeProperties": {
+			"server": "pg0514.postgres.database.chinacloudapi.cn",
+			"port": "5432",
+			"database": "db",
+			"sslMode": 2,
+			"username": "lihong",
+			"authenticationType": "Basic",
+			"commandTimeout": 12000,
+			"connectionTimeout": 1200,
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzMmQ0ZTMyNC0xZTk0LTQ3MzUtOTJlNC0yYmZjYWZlNTQxN2QiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "selfhostIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

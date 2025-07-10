@@ -1,5 +1,5 @@
 {
-	"name": "copy_pipeline_0126",
+	"name": "pipeline6",
 	"properties": {
 		"activities": [
 			{
@@ -16,9 +16,9 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "PostgreSqlV2Source",
+						"query": "select * from public.example_time_table ",
+						"queryTimeout": "02:00:00"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQLDBdataset01",
+						"referenceName": "PostgreSqlTable1",
 						"type": "DatasetReference"
 					}
 				],
@@ -56,7 +56,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2025-01-27T05:09:40Z"
+		"lastPublishTime": "2025-07-03T00:35:12Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
