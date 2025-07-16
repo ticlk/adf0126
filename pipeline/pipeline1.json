@@ -17,6 +17,9 @@
 				"typeProperties": {
 					"method": "POST",
 					"url": "https://management.chinacloudapi.cn/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourcegroups/rg0427/providers/Microsoft.DataFactory/factories/adf0213dev/integrationruntimes/integrationRuntime7/start?api-version=2018-06-01",
+					"body": {
+						"message": "start ir"
+					},
 					"authentication": {
 						"type": "MSI",
 						"resource": "https://management.chinacloudapi.cn"
