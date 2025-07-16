@@ -1,0 +1,160 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf0213dev"
+		},
+		"ADLS_LS_accountKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureMySql1_connectionString": {
+			"value": ""
+		},
+		"AzureMySql2_connectionString": {
+			"value": ""
+		},
+		"AzurePostgreSql1_password": {
+			"value": ""
+		},
+		"AzurePostgreSql2_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"FtpServer1_password": {
+			"value": ""
+		},
+		"PostgreSql1_password": {
+			"value": ""
+		},
+		"SQLDB_LS_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"ADLS_LS_properties_typeProperties_url": {
+			"value": "https://storage1118.dfs.core.chinacloudapi.cn/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://storage0331.dfs.core.chinacloudapi.cn/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://storage0331.dfs.core.chinacloudapi.cn/"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0331-044005-vfdn3sh"
+		},
+		"AzurePostgreSql1_properties_typeProperties_server": {
+			"value": "pg0514.postgres.database.chinacloudapi.cn"
+		},
+		"AzurePostgreSql1_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"AzurePostgreSql1_properties_typeProperties_username": {
+			"value": "lihong"
+		},
+		"AzurePostgreSql2_properties_typeProperties_server": {
+			"value": "19.0.1.8"
+		},
+		"AzurePostgreSql2_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"AzurePostgreSql2_properties_typeProperties_username": {
+			"value": "lihong"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sql1114.database.chinacloudapi.cn"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "lihong"
+		},
+		"FtpServer1_properties_typeProperties_host": {
+			"value": "20.0.0.4"
+		},
+		"FtpServer1_properties_typeProperties_userName": {
+			"value": "ftpuser"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://casesharing.iepwechat.jjmc.cn/storage/files/2025_02_19/5d6445743903630ba03b6bca885a3bfc.pptx"
+		},
+		"PostgreSql1_properties_typeProperties_server": {
+			"value": "pg0514.postgres.database.chinacloudapi.cn"
+		},
+		"PostgreSql1_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"PostgreSql1_properties_typeProperties_username": {
+			"value": "lihong"
+		},
+		"SQLDB_LS_properties_typeProperties_server": {
+			"value": "sql1111.database.chinacloudapi.cn"
+		},
+		"SQLDB_LS_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"SQLDB_LS_properties_typeProperties_userName": {
+			"value": "lihong"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "sql1114.database.chinacloudapi.cn"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "lihong"
+		},
+		"integrationRuntime7_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "sql0612.database.chinacloudapi.cn"
+		},
+		"integrationRuntime7_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "lihong"
+		},
+		"integrationRuntime7_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		},
+		"AzureBlobStorage880_properties_privateLinkResourceId": {
+			"value": "/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourceGroups/rg1108/providers/Microsoft.Storage/storageAccounts/storage0331"
+		},
+		"AzureBlobStorage880_properties_groupId": {
+			"value": "blob"
+		},
+		"AzureBlobStorage880_properties_fqdns": {
+			"value": [
+				"storage0331.blob.core.chinacloudapi.cn"
+			]
+		},
+		"AzureDataLakeStorage91_properties_privateLinkResourceId": {
+			"value": "/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourceGroups/rg1108/providers/Microsoft.Storage/storageAccounts/storage0331"
+		},
+		"AzureDataLakeStorage91_properties_groupId": {
+			"value": "dfs"
+		},
+		"AzureDataLakeStorage91_properties_fqdns": {
+			"value": [
+				"storage0331.dfs.core.chinacloudapi.cn"
+			]
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
