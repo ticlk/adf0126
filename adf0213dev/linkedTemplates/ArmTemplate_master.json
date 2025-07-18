@@ -43,6 +43,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
 		},
+		"CosmosDbNoSql1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDbNoSql1'"
+		},
+		"CosmosDbNoSql2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDbNoSql2'"
+		},
 		"FtpServer1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FtpServer1'"
@@ -242,6 +250,12 @@
 					},
 					"AzureSqlDatabase1_password": {
 						"value": "[parameters('AzureSqlDatabase1_password')]"
+					},
+					"CosmosDbNoSql1_connectionString": {
+						"value": "[parameters('CosmosDbNoSql1_connectionString')]"
+					},
+					"CosmosDbNoSql2_connectionString": {
+						"value": "[parameters('CosmosDbNoSql2_connectionString')]"
 					},
 					"SQLDB_LS_password": {
 						"value": "[parameters('SQLDB_LS_password')]"
