@@ -23,10 +23,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'PostgreSql1'"
 		},
-		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
-			"type": "string",
-			"defaultValue": "0331-044005-vfdn3sh"
-		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "pg0514.postgres.database.chinacloudapi.cn"
@@ -74,40 +70,124 @@
 		"PostgreSql1_properties_typeProperties_username": {
 			"type": "string",
 			"defaultValue": "lihong"
-		},
-		"AzureBlobStorage880_properties_privateLinkResourceId": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourceGroups/rg1108/providers/Microsoft.Storage/storageAccounts/storage0331"
-		},
-		"AzureBlobStorage880_properties_groupId": {
-			"type": "string",
-			"defaultValue": "blob"
-		},
-		"AzureBlobStorage880_properties_fqdns": {
-			"type": "array",
-			"defaultValue": [
-				"storage0331.blob.core.chinacloudapi.cn"
-			]
-		},
-		"AzureDataLakeStorage91_properties_privateLinkResourceId": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourceGroups/rg1108/providers/Microsoft.Storage/storageAccounts/storage0331"
-		},
-		"AzureDataLakeStorage91_properties_groupId": {
-			"type": "string",
-			"defaultValue": "dfs"
-		},
-		"AzureDataLakeStorage91_properties_fqdns": {
-			"type": "array",
-			"defaultValue": [
-				"storage0331.dfs.core.chinacloudapi.cn"
-			]
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline8')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Notebook1",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/li.hong@microsoftinternal.partner.onmschina.cn/Untitled Notebook 2025-07-18 12:51:54"
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricks1",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureMySqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureMySql1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureMySqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "int",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "username",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "password",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"tableName": "users"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SQLDB_LS",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"table_name": {
+						"type": "string",
+						"defaultValue": "test"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "fname",
+						"type": "varchar"
+					},
+					{
+						"name": "fnum",
+						"type": "decimal",
+						"precision": 8,
+						"scale": 4
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "table0403"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -437,26 +517,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricks",
-				"typeProperties": {
-					"domain": "https://adb-3885924896301357.1.databricks.azure.cn",
-					"authentication": "MSI",
-					"workspaceResourceId": "/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourceGroups/rg1108/providers/Microsoft.Databricks/workspaces/dbx0331",
-					"credential": {
-						"referenceName": "credential1",
-						"type": "CredentialReference"
-					},
-					"existingClusterId": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/AzurePostgreSql1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -610,28 +670,6 @@
 					"type": "ManagedVirtualNetworkReference",
 					"referenceName": "default"
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/default/AzureBlobStorage880')]",
-			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"privateLinkResourceId": "[parameters('AzureBlobStorage880_properties_privateLinkResourceId')]",
-				"groupId": "[parameters('AzureBlobStorage880_properties_groupId')]",
-				"fqdns": "[parameters('AzureBlobStorage880_properties_fqdns')]"
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/default/AzureDataLakeStorage91')]",
-			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"privateLinkResourceId": "[parameters('AzureDataLakeStorage91_properties_privateLinkResourceId')]",
-				"groupId": "[parameters('AzureDataLakeStorage91_properties_groupId')]",
-				"fqdns": "[parameters('AzureDataLakeStorage91_properties_fqdns')]"
 			},
 			"dependsOn": []
 		}

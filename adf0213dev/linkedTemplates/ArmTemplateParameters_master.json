@@ -17,6 +17,9 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"AzureMySql1_connectionString": {
 			"value": ""
 		},
@@ -60,7 +63,7 @@
 			"value": "https://storage0331.dfs.core.chinacloudapi.cn/"
 		},
 		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
-			"value": "0331-044005-vfdn3sh"
+			"value": "0711-043753-w0did5sr"
 		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
 			"value": "pg0514.postgres.database.chinacloudapi.cn"

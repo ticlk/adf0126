@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
 		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
 		"AzureMySql1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureMySql1'"
@@ -81,7 +85,7 @@
 		},
 		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
 			"type": "string",
-			"defaultValue": "0331-044005-vfdn3sh"
+			"defaultValue": "0711-043753-w0did5sr"
 		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
 			"type": "string",
@@ -242,6 +246,9 @@
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
 					"AzureMySql1_connectionString": {
 						"value": "[parameters('AzureMySql1_connectionString')]"
 					},
@@ -268,6 +275,9 @@
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
 					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
@@ -335,9 +345,6 @@
 					"PostgreSql1_password": {
 						"value": "[parameters('PostgreSql1_password')]"
 					},
-					"AzureDatabricks1_properties_typeProperties_existingClusterId": {
-						"value": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
-					},
 					"AzurePostgreSql1_properties_typeProperties_server": {
 						"value": "[parameters('AzurePostgreSql1_properties_typeProperties_server')]"
 					},
@@ -373,24 +380,6 @@
 					},
 					"PostgreSql1_properties_typeProperties_username": {
 						"value": "[parameters('PostgreSql1_properties_typeProperties_username')]"
-					},
-					"AzureBlobStorage880_properties_privateLinkResourceId": {
-						"value": "[parameters('AzureBlobStorage880_properties_privateLinkResourceId')]"
-					},
-					"AzureBlobStorage880_properties_groupId": {
-						"value": "[parameters('AzureBlobStorage880_properties_groupId')]"
-					},
-					"AzureBlobStorage880_properties_fqdns": {
-						"value": "[parameters('AzureBlobStorage880_properties_fqdns')]"
-					},
-					"AzureDataLakeStorage91_properties_privateLinkResourceId": {
-						"value": "[parameters('AzureDataLakeStorage91_properties_privateLinkResourceId')]"
-					},
-					"AzureDataLakeStorage91_properties_groupId": {
-						"value": "[parameters('AzureDataLakeStorage91_properties_groupId')]"
-					},
-					"AzureDataLakeStorage91_properties_fqdns": {
-						"value": "[parameters('AzureDataLakeStorage91_properties_fqdns')]"
 					}
 				}
 			},
@@ -415,6 +404,24 @@
 					"AzureDataLakeStorage2_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
 					},
+					"AzureBlobStorage880_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureBlobStorage880_properties_privateLinkResourceId')]"
+					},
+					"AzureBlobStorage880_properties_groupId": {
+						"value": "[parameters('AzureBlobStorage880_properties_groupId')]"
+					},
+					"AzureBlobStorage880_properties_fqdns": {
+						"value": "[parameters('AzureBlobStorage880_properties_fqdns')]"
+					},
+					"AzureDataLakeStorage91_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureDataLakeStorage91_properties_privateLinkResourceId')]"
+					},
+					"AzureDataLakeStorage91_properties_groupId": {
+						"value": "[parameters('AzureDataLakeStorage91_properties_groupId')]"
+					},
+					"AzureDataLakeStorage91_properties_fqdns": {
+						"value": "[parameters('AzureDataLakeStorage91_properties_fqdns')]"
+					},
 					"AzureDataLakeStorage2_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
 					}
@@ -422,6 +429,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'adf0213dev_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "adf0213dev_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf0213dev_ArmTemplate_2')]"
 			]
 		}
 	]
