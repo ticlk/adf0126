@@ -59,6 +59,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FtpServer1'"
 		},
+		"Odbc1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Odbc1'"
+		},
+		"Odbc1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Odbc1'"
+		},
 		"PostgreSql1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'PostgreSql1'"
@@ -89,7 +97,7 @@
 		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "pg0514.postgres.database.chinacloudapi.cn"
+			"defaultValue": "fdzpsql.postgres.database.chinacloudapi.cn"
 		},
 		"AzurePostgreSql1_properties_typeProperties_database": {
 			"type": "string",
@@ -97,7 +105,7 @@
 		},
 		"AzurePostgreSql1_properties_typeProperties_username": {
 			"type": "string",
-			"defaultValue": "lihong"
+			"defaultValue": "fandongze"
 		},
 		"AzurePostgreSql2_properties_typeProperties_server": {
 			"type": "string",
@@ -134,6 +142,10 @@
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://casesharing.iepwechat.jjmc.cn/storage/files/2025_02_19/5d6445743903630ba03b6bca885a3bfc.pptx"
+		},
+		"Odbc1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "fandongze"
 		},
 		"PostgreSql1_properties_typeProperties_server": {
 			"type": "string",
@@ -1028,6 +1040,70 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipeline9')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzurePostgreSqlSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "OdbcSink",
+								"writeBatchSize": 0
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzurePostgreSqlTable1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "OdbcTable1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/AzurePostgreSqlTable1')]",
+				"[concat(variables('factoryId'), '/datasets/OdbcTable1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureMySqlTable1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1117,7 +1193,7 @@
 				],
 				"typeProperties": {
 					"schema": "public",
-					"table": "my_table02"
+					"table": "table0723"
 				}
 			},
 			"dependsOn": [
@@ -1539,6 +1615,26 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/OdbcTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Odbc1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "OdbcTable",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "\"public\".\"table0724\""
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Odbc1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/PostgreSqlTable1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1796,17 +1892,15 @@
 						"type": "SecureString",
 						"value": "[parameters('AzurePostgreSql1_password')]"
 					},
-					"authenticationType": "Basic",
-					"commandTimeout": 12000,
-					"connectionTimeout": 1200
+					"authenticationType": "Basic"
 				},
 				"connectVia": {
-					"referenceName": "selfhostIR",
+					"referenceName": "integrationRuntime8",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/selfhostIR')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime8')]"
 			]
 		},
 		{
@@ -1933,6 +2027,34 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/selfhostIR')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Odbc1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "Odbc",
+				"typeProperties": {
+					"connectionString": {
+						"type": "SecureString",
+						"value": "[parameters('Odbc1_connectionString')]"
+					},
+					"authenticationType": "Basic",
+					"userName": "[parameters('Odbc1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('Odbc1_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime8",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime8')]"
 			]
 		},
 		{

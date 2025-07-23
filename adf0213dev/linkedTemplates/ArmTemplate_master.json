@@ -59,6 +59,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FtpServer1'"
 		},
+		"Odbc1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Odbc1'"
+		},
+		"Odbc1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Odbc1'"
+		},
 		"PostgreSql1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'PostgreSql1'"
@@ -89,7 +97,7 @@
 		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "pg0514.postgres.database.chinacloudapi.cn"
+			"defaultValue": "fdzpsql.postgres.database.chinacloudapi.cn"
 		},
 		"AzurePostgreSql1_properties_typeProperties_database": {
 			"type": "string",
@@ -97,7 +105,7 @@
 		},
 		"AzurePostgreSql1_properties_typeProperties_username": {
 			"type": "string",
-			"defaultValue": "lihong"
+			"defaultValue": "fandongze"
 		},
 		"AzurePostgreSql2_properties_typeProperties_server": {
 			"type": "string",
@@ -134,6 +142,10 @@
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://casesharing.iepwechat.jjmc.cn/storage/files/2025_02_19/5d6445743903630ba03b6bca885a3bfc.pptx"
+		},
+		"Odbc1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "fandongze"
 		},
 		"PostgreSql1_properties_typeProperties_server": {
 			"type": "string",
@@ -342,6 +354,12 @@
 					"FtpServer1_password": {
 						"value": "[parameters('FtpServer1_password')]"
 					},
+					"Odbc1_connectionString": {
+						"value": "[parameters('Odbc1_connectionString')]"
+					},
+					"Odbc1_password": {
+						"value": "[parameters('Odbc1_password')]"
+					},
 					"PostgreSql1_password": {
 						"value": "[parameters('PostgreSql1_password')]"
 					},
@@ -371,6 +389,9 @@
 					},
 					"HttpServer1_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"Odbc1_properties_typeProperties_userName": {
+						"value": "[parameters('Odbc1_properties_typeProperties_userName')]"
 					},
 					"PostgreSql1_properties_typeProperties_server": {
 						"value": "[parameters('PostgreSql1_properties_typeProperties_server')]"

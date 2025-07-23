@@ -44,6 +44,12 @@
 		"FtpServer1_password": {
 			"value": ""
 		},
+		"Odbc1_connectionString": {
+			"value": ""
+		},
+		"Odbc1_password": {
+			"value": ""
+		},
 		"PostgreSql1_password": {
 			"value": ""
 		},
@@ -66,13 +72,13 @@
 			"value": "0711-043753-w0did5sr"
 		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
-			"value": "pg0514.postgres.database.chinacloudapi.cn"
+			"value": "fdzpsql.postgres.database.chinacloudapi.cn"
 		},
 		"AzurePostgreSql1_properties_typeProperties_database": {
 			"value": "db"
 		},
 		"AzurePostgreSql1_properties_typeProperties_username": {
-			"value": "lihong"
+			"value": "fandongze"
 		},
 		"AzurePostgreSql2_properties_typeProperties_server": {
 			"value": "19.0.1.8"
@@ -100,6 +106,9 @@
 		},
 		"HttpServer1_properties_typeProperties_url": {
 			"value": "https://casesharing.iepwechat.jjmc.cn/storage/files/2025_02_19/5d6445743903630ba03b6bca885a3bfc.pptx"
+		},
+		"Odbc1_properties_typeProperties_userName": {
+			"value": "fandongze"
 		},
 		"PostgreSql1_properties_typeProperties_server": {
 			"value": "pg0514.postgres.database.chinacloudapi.cn"

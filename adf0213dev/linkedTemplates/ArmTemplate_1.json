@@ -19,13 +19,21 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FtpServer1'"
 		},
+		"Odbc1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Odbc1'"
+		},
+		"Odbc1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Odbc1'"
+		},
 		"PostgreSql1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'PostgreSql1'"
 		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "pg0514.postgres.database.chinacloudapi.cn"
+			"defaultValue": "fdzpsql.postgres.database.chinacloudapi.cn"
 		},
 		"AzurePostgreSql1_properties_typeProperties_database": {
 			"type": "string",
@@ -33,7 +41,7 @@
 		},
 		"AzurePostgreSql1_properties_typeProperties_username": {
 			"type": "string",
-			"defaultValue": "lihong"
+			"defaultValue": "fandongze"
 		},
 		"AzurePostgreSql2_properties_typeProperties_server": {
 			"type": "string",
@@ -58,6 +66,10 @@
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://casesharing.iepwechat.jjmc.cn/storage/files/2025_02_19/5d6445743903630ba03b6bca885a3bfc.pptx"
+		},
+		"Odbc1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "fandongze"
 		},
 		"PostgreSql1_properties_typeProperties_server": {
 			"type": "string",
@@ -534,12 +546,10 @@
 						"type": "SecureString",
 						"value": "[parameters('AzurePostgreSql1_password')]"
 					},
-					"authenticationType": "Basic",
-					"commandTimeout": 12000,
-					"connectionTimeout": 1200
+					"authenticationType": "Basic"
 				},
 				"connectVia": {
-					"referenceName": "selfhostIR",
+					"referenceName": "integrationRuntime8",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
@@ -618,6 +628,32 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Odbc1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "Odbc",
+				"typeProperties": {
+					"connectionString": {
+						"type": "SecureString",
+						"value": "[parameters('Odbc1_connectionString')]"
+					},
+					"authenticationType": "Basic",
+					"userName": "[parameters('Odbc1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('Odbc1_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime8",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/PostgreSql1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -639,36 +675,6 @@
 				"connectVia": {
 					"referenceName": "integrationRuntime5",
 					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/integrationRuntime2')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "Managed",
-				"typeProperties": {
-					"computeProperties": {
-						"location": "chinanorth3",
-						"dataFlowProperties": {
-							"computeType": "General",
-							"coreCount": 8,
-							"timeToLive": 10,
-							"cleanup": false,
-							"customProperties": []
-						},
-						"pipelineExternalComputeScaleProperties": {
-							"timeToLive": 60,
-							"numberOfPipelineNodes": 1,
-							"numberOfExternalNodes": 1
-						}
-					}
-				},
-				"managedVirtualNetwork": {
-					"type": "ManagedVirtualNetworkReference",
-					"referenceName": "default"
 				}
 			},
 			"dependsOn": []
