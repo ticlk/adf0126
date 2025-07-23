@@ -6,18 +6,16 @@
 		"type": "AzurePostgreSql",
 		"version": "2.0",
 		"typeProperties": {
-			"server": "pg0514.postgres.database.chinacloudapi.cn",
+			"server": "fdzpsql.postgres.database.chinacloudapi.cn",
 			"port": "5432",
 			"database": "db",
 			"sslMode": 2,
-			"username": "lihong",
+			"username": "fandongze",
 			"authenticationType": "Basic",
-			"commandTimeout": 12000,
-			"connectionTimeout": 1200,
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzMmQ0ZTMyNC0xZTk0LTQ3MzUtOTJlNC0yYmZjYWZlNTQxN2QiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NzZiOGQ2OS1mOWNkLTQzMTktOTk4OS1hYjgzNjkzZTE1ZTgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
-			"referenceName": "selfhostIR",
+			"referenceName": "integrationRuntime8",
 			"type": "IntegrationRuntimeReference"
 		}
 	}
