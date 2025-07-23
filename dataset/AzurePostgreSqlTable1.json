@@ -47,7 +47,7 @@
 		],
 		"typeProperties": {
 			"schema": "public",
-			"table": "my_table02"
+			"table": "table0723"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
