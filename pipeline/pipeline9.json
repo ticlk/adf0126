@@ -16,13 +16,19 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzurePostgreSqlSource",
-						"partitionOption": "None",
+						"type": "OdbcSource",
 						"queryTimeout": "02:00:00"
 					},
 					"sink": {
-						"type": "OdbcSink",
-						"writeBatchSize": 0
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -36,13 +42,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzurePostgreSqlTable1",
+						"referenceName": "OdbcTable2",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "OdbcTable1",
+						"referenceName": "DelimitedText4",
 						"type": "DatasetReference"
 					}
 				]
