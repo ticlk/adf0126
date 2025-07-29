@@ -50,6 +50,18 @@
 		"Odbc1_password": {
 			"value": ""
 		},
+		"Odbc2_connectionString": {
+			"value": ""
+		},
+		"Odbc2_password": {
+			"value": ""
+		},
+		"Odbc3_connectionString": {
+			"value": ""
+		},
+		"Odbc3_password": {
+			"value": ""
+		},
 		"PostgreSql1_password": {
 			"value": ""
 		},
@@ -109,6 +121,12 @@
 		},
 		"Odbc1_properties_typeProperties_userName": {
 			"value": "fandongze"
+		},
+		"Odbc2_properties_typeProperties_userName": {
+			"value": "fandongze"
+		},
+		"Odbc3_properties_typeProperties_userName": {
+			"value": "token"
 		},
 		"PostgreSql1_properties_typeProperties_server": {
 			"value": "pg0514.postgres.database.chinacloudapi.cn"

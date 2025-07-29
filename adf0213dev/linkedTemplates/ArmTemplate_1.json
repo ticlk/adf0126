@@ -27,10 +27,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Odbc1'"
 		},
-		"PostgreSql1_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'PostgreSql1'"
-		},
 		"AzurePostgreSql1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "fdzpsql.postgres.database.chinacloudapi.cn"
@@ -70,18 +66,6 @@
 		"Odbc1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "fandongze"
-		},
-		"PostgreSql1_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "pg0514.postgres.database.chinacloudapi.cn"
-		},
-		"PostgreSql1_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "db"
-		},
-		"PostgreSql1_properties_typeProperties_username": {
-			"type": "string",
-			"defaultValue": "lihong"
 		}
 	},
 	"variables": {
@@ -434,6 +418,31 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "dev"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SQLDBdataset01')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -648,32 +657,6 @@
 				},
 				"connectVia": {
 					"referenceName": "integrationRuntime8",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PostgreSql1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "PostgreSqlV2",
-				"typeProperties": {
-					"server": "[parameters('PostgreSql1_properties_typeProperties_server')]",
-					"port": 5432,
-					"database": "[parameters('PostgreSql1_properties_typeProperties_database')]",
-					"username": "[parameters('PostgreSql1_properties_typeProperties_username')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('PostgreSql1_password')]"
-					},
-					"sslMode": 2,
-					"authenticationType": "Basic"
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime5",
 					"type": "IntegrationRuntimeReference"
 				}
 			},

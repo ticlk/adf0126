@@ -67,6 +67,22 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Odbc1'"
 		},
+		"Odbc2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Odbc2'"
+		},
+		"Odbc2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Odbc2'"
+		},
+		"Odbc3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Odbc3'"
+		},
+		"Odbc3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Odbc3'"
+		},
 		"PostgreSql1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'PostgreSql1'"
@@ -146,6 +162,14 @@
 		"Odbc1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "fandongze"
+		},
+		"Odbc2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "fandongze"
+		},
+		"Odbc3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "token"
 		},
 		"PostgreSql1_properties_typeProperties_server": {
 			"type": "string",
@@ -360,9 +384,6 @@
 					"Odbc1_password": {
 						"value": "[parameters('Odbc1_password')]"
 					},
-					"PostgreSql1_password": {
-						"value": "[parameters('PostgreSql1_password')]"
-					},
 					"AzurePostgreSql1_properties_typeProperties_server": {
 						"value": "[parameters('AzurePostgreSql1_properties_typeProperties_server')]"
 					},
@@ -392,15 +413,6 @@
 					},
 					"Odbc1_properties_typeProperties_userName": {
 						"value": "[parameters('Odbc1_properties_typeProperties_userName')]"
-					},
-					"PostgreSql1_properties_typeProperties_server": {
-						"value": "[parameters('PostgreSql1_properties_typeProperties_server')]"
-					},
-					"PostgreSql1_properties_typeProperties_database": {
-						"value": "[parameters('PostgreSql1_properties_typeProperties_database')]"
-					},
-					"PostgreSql1_properties_typeProperties_username": {
-						"value": "[parameters('PostgreSql1_properties_typeProperties_username')]"
 					}
 				}
 			},
@@ -422,8 +434,35 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureDataLakeStorage2_accountKey": {
-						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					"Odbc2_connectionString": {
+						"value": "[parameters('Odbc2_connectionString')]"
+					},
+					"Odbc2_password": {
+						"value": "[parameters('Odbc2_password')]"
+					},
+					"Odbc3_connectionString": {
+						"value": "[parameters('Odbc3_connectionString')]"
+					},
+					"Odbc3_password": {
+						"value": "[parameters('Odbc3_password')]"
+					},
+					"PostgreSql1_password": {
+						"value": "[parameters('PostgreSql1_password')]"
+					},
+					"Odbc2_properties_typeProperties_userName": {
+						"value": "[parameters('Odbc2_properties_typeProperties_userName')]"
+					},
+					"Odbc3_properties_typeProperties_userName": {
+						"value": "[parameters('Odbc3_properties_typeProperties_userName')]"
+					},
+					"PostgreSql1_properties_typeProperties_server": {
+						"value": "[parameters('PostgreSql1_properties_typeProperties_server')]"
+					},
+					"PostgreSql1_properties_typeProperties_database": {
+						"value": "[parameters('PostgreSql1_properties_typeProperties_database')]"
+					},
+					"PostgreSql1_properties_typeProperties_username": {
+						"value": "[parameters('PostgreSql1_properties_typeProperties_username')]"
 					},
 					"AzureBlobStorage880_properties_privateLinkResourceId": {
 						"value": "[parameters('AzureBlobStorage880_properties_privateLinkResourceId')]"
@@ -442,9 +481,6 @@
 					},
 					"AzureDataLakeStorage91_properties_fqdns": {
 						"value": "[parameters('AzureDataLakeStorage91_properties_fqdns')]"
-					},
-					"AzureDataLakeStorage2_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -465,6 +501,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
 					}
 				}
 			},
