@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "AzureMySql",
 		"typeProperties": {
-			"connectionString": "server=mysql0208.mysql.database.chinacloudapi.cn;port=3306;database=db;uid=dbuser;sslmode=1;usesystemtruststore=0",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERjAyMTNERVZfM2RhZjIxYTMtOTYwOS00MTVhLWE2ZGMtMDE5MzNiMjc0OTQ4Ig0KfQ=="
+			"connectionString": "server=mysql0704.mysql.database.chinacloudapi.cn;port=3306;database=db;uid=lihong;sslmode=1;usesystemtruststore=0",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEMyMjYxQTQwLTRENDYtNEQ5Qi05MTk0LUEzRkUzQ0QyRDAxOF81NzBlNmY2YS0yY2U5LTQ5NmYtODIxMS1jYWNjOTFhMjY2M2UiDQp9"
 		}
 	}
 }
