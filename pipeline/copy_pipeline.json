@@ -27,6 +27,8 @@
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"validateDataConsistency": true,
 					"translator": {
 						"type": "TabularTranslator",
 						"typeConversion": true,

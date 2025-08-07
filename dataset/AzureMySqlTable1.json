@@ -28,7 +28,7 @@
 			}
 		],
 		"typeProperties": {
-			"tableName": "users"
+			"tableName": "table070505"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
